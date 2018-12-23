@@ -1,0 +1,35 @@
+{
+  "name": "Hexo Tag Aplayer Convertor",
+  "version": "1.0",
+  "description": "A convinient tool to convert online music to hexo tag aplayer string, it now supports: QQ music",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "background.js",
+      "menu.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "contextMenus",
+    "webNavigation",
+    "declarativeContent",
+    "storage",
+    "activeTab"
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/get_started16.png",
+      "32": "images/get_started32.png",
+      "48": "images/get_started48.png",
+      "128": "images/get_started128.png"
+    }
+  },
+  "icons": {
+    "16": "images/get_started16.png",
+    "32": "images/get_started32.png",
+    "48": "images/get_started48.png",
+    "128": "images/get_started128.png"
+  }
+}
