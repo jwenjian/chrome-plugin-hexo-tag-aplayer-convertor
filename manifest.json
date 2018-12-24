@@ -11,6 +11,8 @@
     "persistent": false
   },
   "permissions": [
+    "tabs",
+    "notifications",
     "contextMenus",
     "webNavigation",
     "declarativeContent",
