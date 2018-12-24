@@ -34,13 +34,18 @@ chrome.contextMenus.create({ "id": "copy-as-aplayer-list-item", "title": "Copy a
  */
 function generateContentScriptJsName(info, tab) {
   let domain;
+  
   if (tab.url.indexOf('y.qq.com/portal/player.html') !== -1) {
+    // QQ Music
     domain = 'qq';
+  } else if (tab.url.indexOf('music.163.com/#/song?id=') !== -1) {
+    // Netease Music
+    domain = '163';
   } else {
+    // Unsupported Domain
     showUpsupportDomainNotificaction();
     return null;
   }
-
 
   return `${domain}_${info.menuItemId}.js`;
 }
