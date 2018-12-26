@@ -35,12 +35,15 @@ chrome.contextMenus.create({ "id": "copy-as-aplayer-list-item", "title": "Copy a
 function generateContentScriptJsName(info, tab) {
   let domain;
   
-  if (tab.url.indexOf('y.qq.com/portal/player.html') !== -1) {
+  if (tab.url.indexOf('://y.qq.com/portal/player.html') !== -1) {
     // QQ Music
     domain = 'qq';
-  } else if (tab.url.indexOf('music.163.com/#/song?id=') !== -1 || tab.url.indexOf('music.163.com/#/palyerlist?id=')) {
+  } else if (tab.url.indexOf('://music.163.com/#/song?id=') !== -1 || tab.url.indexOf('://music.163.com/#/palyerlist?id=') !== -1) {
     // Netease Music
     domain = '163';
+  } else if (tab.url.indexOf('://www.kugou.com/song/#hash=') !== -1) {
+    // Kugou Music
+    domain = 'kugou';
   } else {
     // Unsupported Domain
     showUpsupportDomainNotificaction();
@@ -90,7 +93,7 @@ console.log('ok');
  * @param {String} text text to be copied
  */
 function copyTextToClipboard(text) {
-  console.log(text);
+  
   //Create a textbox field where we can insert text to. 
   var copyFrom = document.createElement("textarea");
 
@@ -106,14 +109,10 @@ function copyTextToClipboard(text) {
   copyFrom.select();
 
   //Execute command
-  var copied = document.execCommand('copy', false, null);
-
-  console.log(copied);
+  document.execCommand('copy', false, null);
 
   //(Optional) De-select the text using blur(). 
   copyFrom.blur();
-
-  console.log(copyFrom);
 
   //Remove the textbox field from the document.body, so no other JavaScript nor 
   //other elements can get access to this.
