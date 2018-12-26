@@ -38,7 +38,7 @@ function generateContentScriptJsName(info, tab) {
   if (tab.url.indexOf('y.qq.com/portal/player.html') !== -1) {
     // QQ Music
     domain = 'qq';
-  } else if (tab.url.indexOf('music.163.com/#/song?id=') !== -1) {
+  } else if (tab.url.indexOf('music.163.com/#/song?id=') !== -1 || tab.url.indexOf('music.163.com/#/palyerlist?id=')) {
     // Netease Music
     domain = '163';
   } else {
