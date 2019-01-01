@@ -1,7 +1,7 @@
 {
   "name": "Hexo Tag Aplayer Convertor",
   "version": "1.0",
-  "description": "A convinient tool to convert online music to hexo tag aplayer string, it now supports: QQ music",
+  "description": "A convinient tool to convert online music to hexo tag aplayer string",
   "manifest_version": 2,
   "background": {
     "scripts": [
